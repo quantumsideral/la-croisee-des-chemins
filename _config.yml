@@ -1,0 +1,7 @@
+theme: jekyll-theme-cayman
+title: La croisée des chemins
+description: Où vous mèneront vos choix ?
+user: quantumsideral
+project: la-croisee-des-chemins
+plugins:
+  - jekyll-feed

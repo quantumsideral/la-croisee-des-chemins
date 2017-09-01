@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "fr" }}">
+
+  <head>
+    <meta charset="UTF-8">
+{% seo %}
+    <meta name="description" content="{{ default: site.description }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+
+  <body id="body" class="light-mode">
+
+    <section class="page-header">
+      <div class="neon"><h1 class="project-name">La croisée des chemins</h1><br><h2 class="project-tagline">Où vous mèneront vos choix ?</h2></div>
+
+        <div class="page-header-menu">
+          <div class="divbreak">
+            <a href="{{ site.baseurl }}{% link index.md %}"><button class="border">Accueil</button></a>
+            <a href="{{ site.baseurl }}{% link all.md %}"><button class="border">Histoires</button></a>
+          </div>
+          <div class="divbreak">
+            <a href="{{ site.baseurl }}{% link license.md %}"><button class="border">Licences</button></a>
+            <a href="{{ site.baseurl }}{% link about.md %}"><button class="border">À propos</button></a>
+          </div>
+          <div class="divbreak">
+            <a href="{{ site.baseurl }}{% link suggestions.md %}"><button class="border">Contact</button></a>
+            <a href="{{ site.baseurl }}{% link feed.news.xml %}"><button class="border">RSS</button></a>
+          </div>
+          <div class="divbreak">
+            <a href="https://quantumsideral.github.io/"><button class="border">Quantum sidéral</button></a>
+          </div>
+          <div class="divbreak">
+            <button type="button" class="border" id="darkLight" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">Dark mode</button>
+            <script type="text/javascript">
+              function toggleDarkLight() {
+                var body = document.getElementById("body");
+                var currentClass = body.className;
+                body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+
+                var button = document.getElementById("darkLight");
+                var currentClassButton = button.className;
+                button.className = currentClassButton == "border" ? "border-dark" : "border";}
+            </script>
+          </div>
+      </div>
+    </section>
+    <section class="main-content">{{ content }} 
+
+    {% if page.commentIssueId %}
+      <br><br>
+      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/comments.css">
+      <div id="comments">
+        <h1>Commentaires</h1>
+        <div id="header">
+          Vous souhaitez commenter cette histoire ? Allez sur <a href="https://github.com/quantumsideral/la-croisee-des-chemins/issues/{{ page.commentIssueId }}"> le fil de commentaires de ce post sur GitHub</a> ! (Vous allez avoir besoin d’un compte Github.)<br><br>
+        </div>
+      </div>
+        <script src="{{ site.baseurl}}/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ site.baseurl }}/assets/js/date.js"></script>
+        <script type="text/javascript">
+          function loadComments(data) {
+            for (var i=0; i<data.length; i++) {
+              var cuser = data[i].user.login;
+              var cuserlink = "https://www.github.com/" + data[i].user.login;
+              var clink = "https://github.com/quantumsideral/la-croisee-des-chemins/issues/{{ page.commentIssueId }}#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
+              var cbody = data[i].body_html;
+              var cavatarlink = data[i].user.avatar_url;
+              var cdate = Date.parse(data[i].created_at).toLocalDateString("yyyy-MM-dd HH:mm:ss");
+
+              $("#comments").append("<div class='comment'><div class='commentheader'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="" width="20" height="20">' + "</div><a class='commentuser' href=\""+ cuserlink + "\">" + cuser + "</a><a class='commentdate' href=\"" + clink + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");}}
+        
+          $.ajax("https://api.github.com/repos/quantumsideral/la-croisee-des-chemins/issues/{{ page.commentIssueId }}/comments?per_page=100", {
+            headers: {Accept: "application/vnd.github.full+json"},
+            dataType: "json",
+            success: function(msg){loadComments(msg);}});
+        </script>
+      {% endif %}
+    </section>
+  </body>
+</html>
+
