@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <script type="text/javascript">
+      window.onload=function(){
+        if(typeof(Storage) !== "undefined") {
+          if (localStorage.lightModeLCDC) {document.getElementById("body").className = localStorage.lightModeLCDC ;}
+          else {document.getElementById("body").className = "light-mode" ;}
+          
+          if (localStorage.buttonLightModeLCDC) {document.getElementById("darkLight").className = localStorage.buttonLightModeLCDC ;}
+          else {document.getElementById("darkLight").className = "border" ;}}
+        else {
+          document.getElementById("body").className = "light-mode" ;
+          document.getElementById("darkLight").className = "border" ;}}
+    </script>
   </head>
 
   <body id="body" class="light-mode">
@@ -38,10 +50,12 @@
                 var body = document.getElementById("body");
                 var currentClass = body.className;
                 body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+                localStorage.setItem("lightModeLCDC", body.className);
 
                 var button = document.getElementById("darkLight");
                 var currentClassButton = button.className;
-                button.className = currentClassButton == "border" ? "border-dark" : "border";}
+                button.className = currentClassButton == "border" ? "border-dark" : "border";
+                localStorage.setItem("buttonLightModeLCDC", button.className);}
             </script>
           </div>
       </div>
