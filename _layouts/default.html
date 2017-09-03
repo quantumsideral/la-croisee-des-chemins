@@ -14,13 +14,8 @@
     <script type="text/javascript">
       if(typeof(Storage) !== "undefined") {
         if (localStorage.lightModeLCDC) {document.getElementById("body").className = localStorage.lightModeLCDC ;}
-        else {document.getElementById("body").className = "light-mode" ;}
-        
-        if (localStorage.buttonLightModeLCDC) {document.getElementById("darkLight").className = localStorage.buttonLightModeLCDC ;}
-        else {document.getElementById("darkLight").className = "border" ;}}
-      else {
-        document.getElementById("body").className = "light-mode" ;
-        document.getElementById("darkLight").className = "border" ;}
+        else {document.getElementById("body").className = "light-mode" ;}}
+      else {document.getElementById("body").className = "light-mode" ;}
     </script>
 
     <section class="page-header">
@@ -43,8 +38,13 @@
             <a href="https://quantumsideral.github.io/"><button class="border">Quantum sidéral</button></a>
           </div>
           <div class="divbreak">
-            <button type="button" class="border" id="darkLight" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">Dark mode</button>
+            <button type="button" id="darkLight" onclick="toggleDarkLight()">Dark mode</button>
             <script type="text/javascript">
+              if(typeof(Storage) !== "undefined") {
+                if (localStorage.buttonLightModeLCDC) {document.getElementById("darkLight").className = localStorage.buttonLightModeLCDC ;}
+                else {document.getElementById("darkLight").className = "border" ;}}
+              else {document.getElementById("darkLight").className = "border" ;}
+
               function toggleDarkLight() {
                 var body = document.getElementById("body");
                 var currentClass = body.className;
