@@ -9,7 +9,9 @@ Ce site a été généré par [GitHub Pages](https://pages.github.com) avec le t
 
 La police des titres est [Eadui](https://fontlibrary.org/en/font/eadui), créée par Peter S. Baker.
 
-L’image de fond du bandeau, [*Fantasy Landscape 2*](http://www.newgrounds.com/art/view/llamareaper/fantasy-landscape-2), a été crée par [Jason Coates](https://twitter.com/AtTheSpeedOf).
+L’image de fond du bandeau, [*Fantasy Landscape 2*](http://www.newgrounds.com/art/view/llamareaper/fantasy-landscape-2), a été créée par [Jason Coates](https://twitter.com/AtTheSpeedOf).
+
+L’image de fond de la page 404, [*Magic book*](https://colgreyis.deviantart.com/art/magic-book-269490471), a été créée par [colgreyis](https://colgreyis.deviantart.com/).
 
 ## Contenu
 
