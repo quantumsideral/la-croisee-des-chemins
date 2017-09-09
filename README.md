@@ -24,6 +24,6 @@ Full legal code for this license is available on the [Creative Commons website](
 
 ### Contact
 
-E-mail : quantum.sideral+contact (at) protonmail.ch
+E-mail : [quantum.sideral+contact (at) protonmail.ch](mailto:quantum.sideral+contact@protonmail.ch)
 
 Flux RSS : https://quantumsideral.github.io/feed.news.xml
