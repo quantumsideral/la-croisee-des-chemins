@@ -15,10 +15,7 @@ Si vous souhaitez écouter une liste de musiques qui me donnent de l’inspirati
 
 <div class="auto-resizable-iframe" id="player">
   <div>
-    <script src="{{ site.baseurl }}/assets/js/w3.js"></script>
     <div w3-include-html="{{ site.baseurl }}/playlist.html"></div>
-      <script>
-        w3.includeHTML();
-      </script>
+      <script>w3.includeHTML();</script>
   </div>
 </div>
