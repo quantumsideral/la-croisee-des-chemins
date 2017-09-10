@@ -117,23 +117,38 @@ button:focus {outline: none}
   color: #ffd700;
   border: solid 5px #ffd700;
   border-top-left-radius: 60px 90px;
-  border-bottom-right-radius: 60px 90px;}  
-@media screen and (min-width: 64em) {
-  .border,.border-dark {transition: all 0.2s ease-in-out;}
-  .border:hover,.border.hover,
-  .border-dark:hover,.border-dark.hover {
-    border-color: #ae71ec;
-    color: #ae71ec;
-    box-shadow: 0 5px 15px;}
-  .border:active,.border.active {
-    border-color: #fff;
-    color: #fff;}}
-
+  border-bottom-right-radius: 60px 90px;}
 .border-dark {
   color: #fff;
   border: solid 5px #fff;
   border-top-left-radius: 60px 90px;
   border-bottom-right-radius: 60px 90px;}
+
+.border-purple {
+  color: #ae71ec;
+  border: solid 5px #ae71ec;
+  border-top-left-radius: 60px 90px;
+  border-bottom-right-radius: 60px 90px;}
+.border-purple-dark {
+  color: #ffd700;
+  border: solid 5px #ffd700;
+  border-top-left-radius: 60px 90px;
+  border-bottom-right-radius: 60px 90px;}
+
+@media screen and (min-width: 64em) {
+  .border,.border-dark,.border-purple,.border-purple-dark {transition: all 0.2s ease-in-out;}
+  .border:hover,.border.hover,
+  .border-dark:hover,.border-dark.hover {
+    border-color: #ae71ec;
+    color: #ae71ec;
+    box-shadow: 0 5px 15px;}
+  .border-purple:hover,.border-purple.hover,
+  .border-purple-dark:hover,.border-purple-dark.hover {
+    border-color: #ff0000;
+    color: #ff0000;}
+  .border:active,.border.active {
+    border-color: #fff;
+    color: #fff;}}
 
 .auto-resizable-iframe {
   margin: 0px auto;
@@ -153,8 +168,6 @@ button:focus {outline: none}
   position:relative;
   z-index:1;
   text-align: justify;}
-
-
 
 /* https://fonts.googleapis.com/css?family=Open+Sans:400,700 */ 
 
