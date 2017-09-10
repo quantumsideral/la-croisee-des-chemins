@@ -17,13 +17,6 @@
   </head>
 
   <body id="body">
-    <script type="text/javascript">
-      if(typeof(Storage) !== "undefined") {
-        if (localStorage.lightModeLCDC) {document.getElementById("body").className = localStorage.lightModeLCDC ;}
-        else {document.getElementById("body").className = "light-mode" ;}}
-      else {document.getElementById("body").className = "light-mode" ;}
-    </script>
-
     <section class="page-header">
       <div class="neon"><h1 class="project-name">La croisée des chemins</h1><br><h2 class="project-tagline">Où vous mèneront vos choix ?</h2></div>
 
@@ -45,23 +38,6 @@
           </div>
           <div class="divbreak">
             <button type="button" id="darkLight" onclick="toggleDarkLight()">Dark mode</button>
-            <script type="text/javascript">
-              if(typeof(Storage) !== "undefined") {
-                if (localStorage.buttonLightModeLCDC) {document.getElementById("darkLight").className = localStorage.buttonLightModeLCDC ;}
-                else {document.getElementById("darkLight").className = "border" ;}}
-              else {document.getElementById("darkLight").className = "border" ;}
-
-              function toggleDarkLight() {
-                var body = document.getElementById("body");
-                var currentClass = body.className;
-                body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
-                localStorage.setItem("lightModeLCDC", body.className);
-
-                var button = document.getElementById("darkLight");
-                var currentClassButton = button.className;
-                button.className = currentClassButton == "border" ? "border-dark" : "border";
-                localStorage.setItem("buttonLightModeLCDC", button.className);}
-            </script>
           </div>
       </div>
     </section>
@@ -94,6 +70,7 @@
         </script>
       {% endif %}
     </section>
+    <script type="text/javascript">setLightMode("body","darkLight","buttonDelete");</script>
   </body>
 </html>
 
