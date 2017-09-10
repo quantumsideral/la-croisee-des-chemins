@@ -117,3 +117,59 @@ function createStory(localVar,elementID) {
     else {element.innerHTML = "Résumé non disponible.";}}
   else {element.innerHTML = "Résumé non disponible.";}
 }
+
+function rollDice(faces,bonus,idElement,localVar){
+  var element = document.getElementById(idElement);
+  var die = bonus + Math.floor(Math.random() * faces) + 1;
+  if (typeof(Storage) !== undefined) {localStorage.setItem(localVar, die);}
+  element.innerHTML = die;
+}
+
+function addToBag(item,localVar){
+  if (typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) == null || localStorage.getItem(localVar) == undefined) {
+      localStorage.setItem(localVar,item);}
+    else{localStorage.setItem(localVar,localStorage.getItem(localVar) + "," + item);}}
+}
+
+function removeFromBag(item,localVar){
+  if (typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+      var text = localStorage.getItem(localVar).replace(item,'').replace(',,',',');
+      localStorage.setItem(localVar,text);}}
+}
+
+function removeAllFromFromBag(item,localVar){
+  if (typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+      var itemre = new RegExp(item,"g");
+      var comare = new RegExp(",,","g");
+      var text = localStorage.getItem(localVar).replace(itemre,'').replace(comare,',');
+      localStorage.setItem(localVar,text);}}
+}
+
+function searchInBag(item,localVar){
+  if (typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+      return localStorage.getItem(localVar).includes(item);}
+    else {return false}}}
+
+function copyBag(formerVar,localVar) {
+  if (typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+      localStorage.setItem(localVar,localStorage.getItem(formerVar));}
+    else {localStorage.setItem(localVar,"");}}
+}
+
+function createBag(localVar) {
+  if (typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) == null || localStorage.getItem(localVar) == undefined) {
+      localStorage.setItem(localVar,"");}}
+}
+
+function deleteVars() {
+  for (var i = 0, j = arguments.length; i < j; i++){
+    if (typeof(Storage) !== undefined) {
+      if (localStorage.getItem(arguments[i]) !== null && localStorage.getItem(arguments[i]) !== undefined) {
+        localStorage.setItem(arguments[i],"");}}}
+}
