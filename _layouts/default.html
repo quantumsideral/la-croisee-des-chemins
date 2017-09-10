@@ -46,7 +46,16 @@
         </div>
       </div>
     </section>
-    <section class="main-content">{{ content }} 
+    <section class="main-content" id="main-content">
+      {% if page.choicePath == 0 %}
+        <button id="buttonDelete" onclick="deleteSave('LCDC-{{ page.storyId }}')">Effacer votre partie précédente</button>
+      {% endif %}
+
+      <p id="continue"></p>{{ content }}
+
+      {% if page.choicePath %}
+        <script type="text/javascript">setProgression("LCDC-{{ page.storyId }}-progression","{{ page.choicePath }}");</script>
+      {% endif %}
 
       {% if page.commentIssueId %}
         <br><br>

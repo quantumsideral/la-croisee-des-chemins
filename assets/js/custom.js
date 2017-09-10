@@ -68,3 +68,52 @@ function checkBrowser(idElement) {
   else {
     element.innerHTML = "Votre navigateur aura une expérience limitée. Essayez un navigateur plus récent !";}
 }
+
+function deleteSave(storyID) {
+  var choices = storyID+"-choices"
+  var temp = storyID+"-choicestemp"
+  var progression = storyID+"-progression"
+  if (typeof(Storage) !== undefined) {
+    if (confirm("Attention, ceci est définitif ! Confirmer ?")) {
+    localStorage.removeItem(choices);
+    localStorage.removeItem(temp);
+    localStorage.removeItem(progression);}}
+}
+
+function storeStory(localVar,elementID) {
+  var vartemp = localVar+"temp"
+  var text = document.getElementById(elementID).innerHTML.replace(/<a\b[^>]*>(.*?)<\/a>/i,"");
+  var text = text.replace(/<button\b[^>]*>(.*?)<\/button>/i,"");
+  var text = text.replace("<img src=\"https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" alt=\"\">","")
+  if (typeof(Storage) !== undefined) {
+    if (text !== localStorage.getItem(vartemp)) {
+      localStorage.setItem(vartemp, text) ;
+      if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+        localStorage.setItem(localVar, localStorage.getItem(localVar) + "<hr>" + text);}
+      else {localStorage.setItem(localVar,text);}}}
+}
+
+function setProgression(localVar,item) {
+  if (typeof(Storage) !== undefined) {localStorage.setItem(localVar,item);}
+}
+
+function checkProgression(element,localVar,url_item,url_site) {
+  if (typeof(Storage) !== undefined) {
+    var checkmark = document.getElementById(element);
+    if (localStorage.getItem(localVar) == "last") {
+      checkmark.innerHTML = " (Terminée ; <a href='"+url_site+"/"+url_item+"-votre-histoire.html#main-content'>Votre histoire</a>)";}
+    else if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+      checkmark.innerHTML = " (En cours)";}
+    else if (localStorage.getItem(localVar) == null || localStorage.getItem(localVar) == undefined) {
+      checkmark.innerHTML = " (Pas commencée)";}}
+}
+
+function createStory(localVar,elementID) {
+  var element = document.getElementById(elementID);
+  if(typeof(Storage) !== undefined) {
+    if (localStorage.getItem(localVar) !== null && localStorage.getItem(localVar) !== undefined) {
+      element.innerHTML = localStorage.getItem(localVar)+"<hr><a href='http://creativecommons.org/licenses/by-nc-nd/4.0/'>\
+        <img alt='Licence Creative Commons' style='border-width:0' src='https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png' /></a>";}
+    else {element.innerHTML = "Résumé non disponible.";}}
+  else {element.innerHTML = "Résumé non disponible.";}
+}
