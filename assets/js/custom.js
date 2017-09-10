@@ -60,3 +60,11 @@ function fireComments() {
     dataType: "json",
     success: function (msg) {loadComments(msg);}});
 }
+
+function checkBrowser(idElement) {
+  var element = document.getElementById(idElement);
+  if (typeof(Storage) !== undefined) {
+    element.innerHTML = "Votre navigateur aura la meilleure expérience sur le site.";}
+  else {
+    element.innerHTML = "Votre navigateur aura une expérience limitée. Essayez un navigateur plus récent !";}
+}
