@@ -48,15 +48,15 @@
     </section>
     <section class="main-content">{{ content }} 
 
-    {% if page.commentIssueId %}
-      <br><br>
-      <div id="comments">
-        <h1>Commentaires</h1>
-        <div id="header">
-          Vous souhaitez commenter cette histoire ? Allez sur <a href="https://github.com/quantumsideral/la-croisee-des-chemins/issues/{{ page.commentIssueId }}"> le fil de commentaires de ce post sur GitHub</a> ! (Vous allez avoir besoin d’un compte Github.)<br><br>
+      {% if page.commentIssueId %}
+        <br><br>
+        <div id="comments">
+          <h1>Commentaires</h1>
+          <div id="header">
+            Vous souhaitez commenter cette histoire ? Allez sur <a href="https://github.com/quantumsideral/la-croisee-des-chemins/issues/{{ page.commentIssueId }}"> le fil de commentaires de ce post sur GitHub</a> ! (Vous allez avoir besoin d’un compte Github.)<br><br>
+          </div>
         </div>
-      </div>
-      <script type="text/javascript">fireComments();</script>
+        <script type="text/javascript">fireComments();</script>
       {% endif %}
 
     </section>
