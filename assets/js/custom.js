@@ -24,6 +24,23 @@ function setLightMode(bodyID,buttonID,deleteID) {
       deleteButton.className = "border-purple";}
 }
 
+function toggleDarkLight(bodyID,buttonID,deleteID) {
+  var body = document.getElementById(bodyID);
+  var currentClass = body.className;
+  body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+  if (typeof(Storage) !== undefined) {localStorage.setItem("lightModeLCDC", body.className);}
+
+  var button = document.getElementById(buttonID);
+  var currentClassButton = button.className;
+  button.className = currentClassButton == "border" ? "border-dark" : "border";
+  if (typeof(Storage) !== undefined) {localStorage.setItem("buttonLightModeLCDC", button.className);}
+  
+  var deleteButton = document.getElementById(deleteID);
+  var currentClassDelete = deleteButton.className;
+  deleteButton.className = currentClassDelete == "border-purple" ? "border-purple-dark" : "border-purple";
+  if (typeof(Storage) !== undefined) {localStorage.setItem("deleteLightModeLCDC", deleteButton.className);}
+}
+
 function loadComments(data) {
   for (var i=0; i<data.length; i++) {
     var cuser = data[i].user.login;
